@@ -104,6 +104,7 @@ quickScrape.queryWindow = {
             return;
         }
 
+        quickScrape.queryScraper.state.active = false;
         this.queryWindow.remove();
         this.clearOverlays();
         this.queryWindow = null;

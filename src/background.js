@@ -4,7 +4,7 @@ if (chrome && chrome.runtime) {
 
         switch (action[0]) {
             case 'code':
-                quickScrape.codeGeneration.handleCall(action, request);
+                quickScrape.codeGeneration.handleCall(action, request, sendResponse);
                 break;
         }
     })

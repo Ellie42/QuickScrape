@@ -11,6 +11,29 @@ quickScrape.selectorGenerator = {
 
         return classes;
     },
+    splitSelector(selector) {
+        let data = [];
+        let regex = /(\w+)(?:#(\w+))?(?:\.([\w\.]+))?/g;
+        let match = regex.exec(selector);
+
+        while(match){
+            let classes;
+
+            if(typeof match[3] !== 'undefined'){
+                classes = match[3].split('.');
+            }
+
+            data.push({
+                tag: match[1],
+                id: match[2],
+                classes: classes,
+            });
+
+            match = regex.exec(selector);
+        }
+
+        return data;
+    },
     generateSingleAttrSelector(el) {
         let selector = "";
         let isId = false;
